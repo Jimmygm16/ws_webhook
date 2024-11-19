@@ -1,5 +1,5 @@
 require './app'
 
-set :host_authorization, permitted_hosts: [ENV.fetch("NGROK_HOST")]
+set :host_authorization, permitted_hosts: [ENV.fetch("PUBLIC_HOSTNAME")]
 
 run Sinatra::Application
