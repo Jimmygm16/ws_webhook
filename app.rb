@@ -7,7 +7,7 @@ require "dotenv/load"
 set :server, :puma
 TOKEN = ENV.fetch("TOKEN")
 
-get "/webhook" do
+get "/wsp-webhook" do
   challenge = params["hub.challenge"]
   verification_token = params["hub.verify_token"]
   if verification_token == TOKEN
@@ -18,7 +18,7 @@ get "/webhook" do
   end
 end
 
-post "/webhook" do
+post "/wsp-webhook" do
   request_body = request.body.read
 
   status 200
